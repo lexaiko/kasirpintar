@@ -13,11 +13,13 @@ class roles
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $roles): Response
+    public function handle(Request $request, Closure $next, ...$roles): Response
     {
-        if ($request->user()->roles != $roles) { 
-            return redirect('dashboard'); 
-        } 
+        // Periksa apakah user memiliki salah satu role yang diperbolehkan
+        if (!in_array($request->user()->roles, $roles)) {
+            return redirect('dashboard')->with('error', 'Anda tidak memiliki akses!');
+        }
+
         return $next($request);
     }
 }

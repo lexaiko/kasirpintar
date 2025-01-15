@@ -12,9 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias([ 
-            'roles' => \App\Http\Middleware\Roles::class, 
-        ]); 
+        $middleware->alias([
+            'roles' => \App\Http\Middleware\Roles::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

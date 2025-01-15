@@ -47,16 +47,12 @@
             @endif
         </div>
         <div class="mt-4">
-            <x-input-label for="no_hp" :value="__('No hp')" />
-            <x-text-input id="no_hp" class="block mt-1 w-full" type="text" name="no_hp" :value="old('no_hp', $user->no_hp)" required/> 
-        </div>
-        <div  class="mt-4">
-            <x-input-label  for="alamat" :value="__('Alamat')" />
-            <x-text-input id="alamat" class="block mt-1 w-full" type="text" name="alamat" :value="old('alamat', $user->alamat)" required /> 
-        </div>
-        <div class="mt-4">
-            <x-input-label  for="posisi" :value="__('Jabatan')" />
-            <x-text-input id="posisi" class="block mt-1 w-full" type="text" name="posisi" :value="old('posisi', $user->posisi)" required />
+            <x-input-label for="roles" :value="__('Roles')" />
+            <select id="roles" name="roles" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" {{ $user->roles !== 'superadmin' ? 'disabled' : '' }} required>
+                <option value="staff" {{ old('roles', $user->roles) === 'staff' ? 'selected' : '' }}>{{ __('Staff') }}</option>
+                <option value="admin" {{ old('roles', $user->roles) === 'admin' ? 'selected' : '' }}>{{ __('Admin') }}</option>
+                <option value="superadmin" {{ old('roles', $user->roles) === 'superadmin' ? 'selected' : '' }}>{{ __('Superadmin') }}</option>
+            </select>
         </div>
 
         <div class="flex items-center gap-4">
@@ -73,6 +69,6 @@
             @endif
         </div>
 
-        
+
     </form>
 </section>

@@ -17,8 +17,14 @@
         </div>
 
         <div class="mt-4">
-            <x-input-label for="roles" :value="__('roles')" />
-            <x-text-input id="roles" class="block mt-1 w-full" type="text" name="roles" :value="old('roles')" required />
+            <x-input-label for="roles" :value="__('Roles')" />
+            <select id="roles" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" name="roles" required>
+                <option value="" disabled selected>{{ __('Select a role') }}</option>
+                <option value="admin">{{ __('Admin') }}</option>
+                <option value="staff">{{ __('Staff') }}</option>
+                <option value="superadmin">{{ __('Superadmin') }}</option>
+            </select>
+            <x-input-error :messages="$errors->get('roles')" class="mt-2" />
         </div>
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
