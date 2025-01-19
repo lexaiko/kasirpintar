@@ -80,7 +80,7 @@
 
                             <th scope="col" class="px-4 py-3">No</th>
                             <th scope="col" class="px-4 py-3">Nama</th>
-                            <th scope="col" class="px-4 py-3">Aksi</th>
+                            <th scope="col" class="px-4 py-3 text-right">Aksi</th>
 
 
                             <th scope="col" class="px-4 py-3">

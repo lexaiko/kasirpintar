@@ -82,7 +82,7 @@
                             <th scope="col" class="px-4 py-3">Harga satuan</th>
                             <th scope="col" class="px-4 py-3">jumlah</th>
                             <th scope="col" class="px-4 py-3">Total Harga</th>
-                            <th scope="col" class="px-4 py-3">Aksi</th>
+                            <th scope="col" class="px-4 py-3 text-rig">Aksi</th>
 
 
                             <th scope="col" class="px-4 py-3">

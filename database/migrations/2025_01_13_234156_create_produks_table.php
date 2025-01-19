@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_merek');
             $table->string('nama');
             $table->decimal('harga', 15, 2);
-            $table->integer('stok');
             $table->string('gambar');
             $table->timestamps();
 

@@ -13,7 +13,7 @@ class Produk extends Model
     protected $table = 'produks';
     protected $primaryKey = 'id_produk';
 
-    protected $fillable = ['id_kategori', 'id_satuan', 'id_merek', 'nama', 'harga', 'stok', 'gambar'];
+    protected $fillable = ['id_kategori', 'id_satuan', 'id_merek', 'nama', 'harga', 'gambar'];
 
     public function kategori()
     {
@@ -28,6 +28,10 @@ class Produk extends Model
     public function merek()
     {
         return $this->belongsTo(Merek::class, 'id_merek', 'id_merek');
+    }
+    public function stok()
+    {
+        return $this->hasOne(Stok::class, 'id_produk', 'id_produk');
     }
 
     public function detailTransaksi()

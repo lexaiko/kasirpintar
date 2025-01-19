@@ -80,8 +80,8 @@
 
                             <th scope="col" class="px-4 py-3">No</th>
                             <th scope="col" class="px-4 py-3">Nama</th>
-                            <th scope="col" class="px-4 py-3">
-                                <span class="sr-only">Actions</span>
+                            <th scope="col" class="px-4 py-3 text-right">
+                                Aksi
                             </th>
                         </tr>
                     </thead>

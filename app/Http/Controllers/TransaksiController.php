@@ -27,6 +27,7 @@ class TransaksiController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->all());
         $request->validate([
             'id_pelanggan' => 'required|max:255',
             'id_staff' => 'required|max:255',

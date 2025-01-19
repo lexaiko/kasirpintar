@@ -19,12 +19,12 @@
             </li>
 
             <button type="button"
-                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/produk*') || request()->is('admin/kategori*') || request()->is('admin/merek*') || request()->is('admin/satuan*') ? 'bg-amber-500 text-white' : '' }}"
+                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/produk*') || request()->is('admin/kategori*') || request()->is('admin/merek*') || request()->is('admin/satuan*') || request()->is('admin/stok*') ? 'bg-amber-500 text-white' : '' }}"
                 aria-controls="dropdown-example"
-                aria-expanded="{{ request()->is('admin/produk*') || request()->is('admin/kategori*') ? 'true' : 'false' }}"
+                aria-expanded="{{ request()->is('admin/produk*') || request()->is('admin/kategori*') || request()->is('admin/satuan*') || request()->is('admin/stok*') || request()->is('admin/merek*') ? 'true' : 'false' }}"
                 data-collapse-toggle="dropdown-example">
                 <!-- Icon SVG Produk -->
-                <svg class="w-[31px] h-[31px] {{ request()->is('admin/produk*') || request()->is('admin/kategori*') || request()->is('admin/merek*') || request()->is('admin/satuan*') ? 'text-white' : 'text-gray-800' }} dark:text-white"
+                <svg class="w-[31px] h-[31px] {{ request()->is('admin/produk*') || request()->is('admin/kategori*') || request()->is('admin/merek*') || request()->is('admin/satuan*') || request()->is('admin/stok*') ? 'text-white' : 'text-gray-800' }} dark:text-white"
                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd"
@@ -36,7 +36,7 @@
                 <span class="flex-1 ml-3 text-left whitespace-nowrap">Master Produk</span>
 
                 <!-- Icon Dropdown -->
-                <svg class="w-3 h-3 {{ request()->is('admin/produk*') || request()->is('admin/kategori*') || request()->is('admin/merek*') || request()->is('admin/satuan*') ? 'text-white' : 'text-gray-800' }}"
+                <svg class="w-3 h-3 {{ request()->is('admin/produk*') || request()->is('admin/kategori*') || request()->is('admin/merek*') || request()->is('admin/satuan*') || request()->is('admin/stok*') ? 'text-white' : 'text-gray-800' }}"
                     aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="m1 1 4 4 4-4" />
@@ -44,17 +44,11 @@
             </button>
 
             <ul id="dropdown-example"
-                class="{{ request()->is('admin/produk*') || request()->is('admin/kategori*') || request()->is('admin/satuan*') || request()->is('admin/merek*') ? '' : 'hidden' }} py-2 space-y-2">
+                class="{{ request()->is('admin/produk*') || request()->is('admin/kategori*') || request()->is('admin/satuan*') || request()->is('admin/merek*') || request()->is('admin/stok*') ? '' : 'hidden' }} py-2 space-y-2">
                 <li>
                     <a href="{{ url('admin/kategori') }}"
                         class="flex items-center w-full p-2 text-base font-medium {{ request()->is('admin/kategori') ? 'bg-amber-500 text-white hover:bg-amber-500 hover:text-white' : 'text-gray-900 hover:bg-gray-100' }} rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700">
                         Kategori
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('admin/merek') }}"
-                        class="flex items-center w-full p-2 text-base font-medium {{ request()->is('admin/merek') ? 'bg-amber-500 text-white hover:bg-amber-500 hover:text-white' : 'text-gray-900 hover:bg-gray-100' }} rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700">
-                        Merek
                     </a>
                 </li>
                 <li>
@@ -64,11 +58,24 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ url('admin/merek') }}"
+                        class="flex items-center w-full p-2 text-base font-medium {{ request()->is('admin/merek') ? 'bg-amber-500 text-white hover:bg-amber-500 hover:text-white' : 'text-gray-900 hover:bg-gray-100' }} rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700">
+                        Merek
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('admin/stok') }}"
+                        class="flex items-center w-full p-2 text-base font-medium {{ request()->is('admin/stok') ? 'bg-amber-500 text-white hover:bg-amber-500 hover:text-white' : 'text-gray-900 hover:bg-gray-100' }} rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700">
+                        Stok
+                    </a>
+                </li>
+                <li>
                     <a href="{{ url('admin/produk') }}"
                         class="flex items-center w-full p-2 text-base font-medium {{ request()->is('admin/produk') ? 'bg-amber-500 text-white hover:bg-amber-500 hover:text-white' : 'text-gray-900 hover:bg-gray-100' }} rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700">
                         Produk
                     </a>
                 </li>
+
             </ul>
             <button type="button"
                 class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{ request()->is('admin/pelanggan*') || request()->is('admin/user*') ? 'bg-amber-500 text-white' : '' }}"
@@ -168,12 +175,12 @@
             <ul class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">
                 <li>
                     <a href="/profile"
-                        class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group {{ request()->is('staff*') ? 'active-sidebar-item' : '' }}">
-                        <svg class="w-[31px] h-[31px] text-gray-800 dark:text-white" aria-hidden="true"
+                        class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group {{ request()->is('profile') ? 'bg-amber-500 text-white hover:bg-amber-500 hover:text-white' : '' }}">
+                        <svg class="w-[31px] h-[31px] {{ request()->is('profile') ? 'text-white' : 'text-gray-800' }} dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                             viewBox="0 0 24 24">
                             <path fill-rule="evenodd"
-                                d="M17 10v1.126c.367.095.714.24 1.032.428l.796-.797 1.415 1.415-.797.796c.188.318.333.665.428 1.032H21v2h-1.126c-.095.367-.24.714-.428 1.032l.797.796-1.415 1.415-.796-.797a3.979 3.979 0 0 1-1.032.428V20h-2v-1.126a3.977 3.977 0 0 1-1.032-.428l-.796.797-1.415-1.415.797-.796A3.975 3.975 0 0 1 12.126 16H11v-2h1.126c.095-.367.24-.714.428-1.032l-.797-.796 1.415-1.415.796.797A3.977 3.977 0 0 1 15 11.126V10h2Zm.406 3.578.016.016c.354.358.574.85.578 1.392v.028a2 2 0 0 1-3.409 1.406l-.01-.012a2 2 0 0 1 2.826-2.83ZM5 8a4 4 0 1 1 7.938.703 7.029 7.029 0 0 0-3.235 3.235A4 4 0 0 1 5 8Zm4.29 5H7a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h6.101A6.979 6.979 0 0 1 9 15c0-.695.101-1.366.29-2Z"
+                                d="M17 10v1.126c.367.095.714.24 1.032.428l.796-.797 1.415 1.415-.797.796c.188.318.333.665.428 1.032H21v2h-1.126c-.095.367-.24.714-.428 1.032l.797.797-1.415 1.415-.796-.797a3.979 3.979 0 0 1-1.032.428V20h-2v-1.126a3.977 3.977 0 0 1-1.032-.428l-.796.797-1.415-1.415.797-.796A3.975 3.975 0 0 1 12.126 16H11v-2h1.126c.095-.367.24-.714.428-1.032l-.797-.796 1.415-1.415.796.797A3.977 3.977 0 0 1 15 11.126V10h2Zm.406 3.578.016.016c.354.358.574.85.578 1.392v.028a2 2 0 0 1-3.409 1.406l-.01-.012a2 2 0 0 1 2.826-2.83ZM5 8a4 4 0 1 1 7.938.703 7.029 7.029 0 0 0-3.235 3.235A4 4 0 0 1 5 8Zm4.29 5H7a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h6.101A6.979 6.979 0 0 1 9 15c0-.695.101-1.366.29-2Z"
                                 clip-rule="evenodd" />
                         </svg>
 

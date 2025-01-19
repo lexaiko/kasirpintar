@@ -51,7 +51,7 @@
             <div class="grid gap-2 sm:grid-cols-2 sm:gap-2">
                 <div class="sm:col-span-1">
                     <label for="id_pelanggan"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pelanggan</label>
                     <select id="id_pelanggan" name="id_pelanggan"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('id_pelanggan') is-invalid @enderror">
                         @foreach ($pelanggan as $k)
@@ -66,15 +66,10 @@
                 </div>
                 <div class="sm:col-span-1">
                     <label for="id_staff"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Staff</label>
-                    <select id="id_staff" name="id_staff"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('id_staff') is-invalid @enderror">
-                        @foreach ($user as $k)
-                            <option value="{{ $k->id }}"
-                                {{ old('id') == $k->id ? 'selected' : '' }}>{{ $k->name }}
-                            </option>
-                        @endforeach
-                    </select>
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Staff {{ auth()->user()->name }} {{ auth()->user()->id }}</label>
+                    <input readonly id="id_staff" name="id_staff"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 cursor-not-allowed"
+                        value="{{ auth()->user()->name }}" />
                     @error('id')
                         <div class="invalid-feedback text-red-500">{{ $message }}</div>
                     @enderror
@@ -84,6 +79,7 @@
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Metode Pembayaran</label>
                     <select id="id_metode" name="id_metode"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('id_metode') is-invalid @enderror">
+                        <option value="" disabled selected>Pilih metode pembayaran</option>
                         @foreach ($metode as $k)
                             <option value="{{ $k->id_metode }}"
                                 {{ old('id_metode') == $k->id_metode ? 'selected' : '' }}>{{ $k->nama }}
@@ -96,7 +92,7 @@
                 </div>
                 <div class="sm:col-span-1">
                     <label for="total_belanja" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total Belanja</label>
-                    <input type="text" name="total_belanja" id="total_belanja" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('total_belanja') is-invalid @enderror" value="{{ old('total_belanja') }}" required>
+                    <input type="text" name="total_belanja" id="total_belanja" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('total_belanja') is-invalid @enderror" value="{{ old('total_belanja') }}" placeholder="Rp. ..." required>
                     @error('total_belanja')
                     <div class="invalid-feedback text-red-500">{{ $message }}</div>
                     @enderror

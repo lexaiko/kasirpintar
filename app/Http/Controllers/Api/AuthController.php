@@ -19,10 +19,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8',
-            'no_hp' => 'required|string|max:15',
-            'alamat' => 'required|string|max:255',
-            'posisi' => 'required|string|max:100',
-            'roles' => 'nullable|in:owner,admin,staff,baru',
+            'roles' => 'nullable|in:staff,admin,superadmin',
         ]);
 
         if ($validator->fails()) {
@@ -35,9 +32,6 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'no_hp' => $request->no_hp,
-            'alamat' => $request->alamat,
-            'posisi' => $request->posisi,
             'roles' => $request->roles ?? 'baru',
         ]);
 

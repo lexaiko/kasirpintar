@@ -2,7 +2,6 @@
     <x-layout>
       <x-slot:title>Kasir Pintar</x-slot:title>
       <h3 class="text-3xl font-bold dark:text-white px-4 lg:px-12">Dashboard</h3>
-      @vite('resources/js/app.js')
 
       <div class="flex justify-center gap-[50px] mt-[30px]">
         <!-- Card Pertama -->

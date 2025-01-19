@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers\api;
 
-use App\Models\Kategori;
+use App\Models\Satuan;
 use Illuminate\Http\Request;
-use App\Http\Resources\KategoriResource;
+use App\Http\Resources\SatuanResource;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
-
-class KategoriController extends Controller
+class SatuanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $kategoris = Kategori::all();
-        return KategoriResource::collection($kategoris);
+        $satuan = Satuan::all();
+        return SatuanResource::collection($satuan);
     }
 
     /**
@@ -33,8 +32,8 @@ class KategoriController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        Kategori::create($request->all());
-        return response()->json(['message' => 'Kategori created successfully'], 201);
+        Satuan::create($request->all());
+        return response()->json(['message' => 'Satuan created successfully'], 201);
     }
 
     /**
@@ -42,13 +41,13 @@ class KategoriController extends Controller
      */
     public function show(string $id)
     {
-        $kategori = Kategori::find($id);
+        $satuan = Satuan::find($id);
 
-        if (!$kategori) {
-            return response()->json(['message' => 'Kategori not found'], 404);
+        if (!$satuan) {
+            return response()->json(['message' => 'Satuan not found'], 404);
         }
 
-        return new KategoriResource($kategori);
+        return new SatuanResource($satuan);
     }
 
     /**
@@ -56,10 +55,10 @@ class KategoriController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $kategori = Kategori::find($id);
+        $satuan = Satuan::find($id);
 
-        if (!$kategori) {
-            return response()->json(['message' => 'Kategori not found'], 404);
+        if (!$satuan) {
+            return response()->json(['message' => 'Satuan not found'], 404);
         }
 
         $validator = Validator::make($request->all(), [
@@ -70,8 +69,8 @@ class KategoriController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $kategori->update($request->all());
-        return new KategoriResource($kategori);
+        $satuan->update($request->all());
+        return new SatuanResource($satuan);
     }
 
     /**
@@ -79,14 +78,14 @@ class KategoriController extends Controller
      */
     public function destroy(string $id)
     {
-        $kategori = Kategori::find($id);
+        $satuan = Satuan::find($id);
 
-        if (!$kategori) {
-            return response()->json(['message' => 'Kategori not found'], 404);
+        if (!$satuan) {
+            return response()->json(['message' => 'Satuan not found'], 404);
         }
 
-        $kategori->delete();
-        return response()->json(['message' => 'Kategori deleted successfully']);
+        $satuan->delete();
+        return response()->json(['message' => 'Satuan deleted successfully']);
     }
 }
 

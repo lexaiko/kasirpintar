@@ -5,12 +5,14 @@ use App\Http\Controllers\MerekController;
 use App\Http\Controllers\MetodeController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SatuanController;
+use App\Http\Controllers\StokController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DetailTransaksiController;
+use App\Http\Controllers\HCartController;
 
 
 Route::get('/', function () {
@@ -18,6 +20,9 @@ Route::get('/', function () {
 });
 Route::get('/test', function () {
     return view('cart');
+});
+Route::get('/anjay', function () {
+    return view('kasir');
 });
 Route::get('/transaksi1', function () {
     return view('transaksi.transaksi');
@@ -85,6 +90,14 @@ Route::middleware(['auth', 'roles:admin,superadmin'])->group(function () {
     Route::post('admin/kategori', [KategoriController::class, 'store'])->name('admin.kategori.store');
     Route::delete('admin/kategori/{id}', [KategoriController::class, 'destroy'])->name('admin.kategori.destroy');
 
+    Route::get('/admin/stok', [StokController::class, 'index'])->name('admin.stok.index');
+    Route::get('/admin/stok/tambah', [StokController::class, 'create'])->name('admin.stok.create');
+    Route::put('admin/stok/{id}/update', [StokController::class, 'update'])->name('admin.stok.update');
+    Route::put('admin/stok/{id}', [StokController::class, 'tambah'])->name('admin.stok.tambah');
+    Route::get('/admin/stok/{id}/edit', [StokController::class, 'edit'])->name('admin.stok.edit');
+    Route::post('admin/stok', [StokController::class, 'store'])->name('admin.stok.store');
+    Route::delete('admin/stok/{id}', [StokController::class, 'destroy'])->name('admin.stok.destroy');
+
     Route::get('/admin/user', [UserController::class, 'index'])->name('admin.user.index');
     Route::get('/admin/user/tambah', [UserController::class, 'create'])->name('admin.user.create');
     Route::put('admin/user/{id}', [UserController::class, 'update'])->name('admin.user.update');
@@ -98,6 +111,9 @@ Route::middleware(['auth', 'roles:admin,superadmin'])->group(function () {
     Route::get('/admin/detailTransaksi/{id}/edit', [DetailTransaksiController::class, 'edit'])->name('admin.detailTransaksi.edit');
     Route::post('admin/detailTransaksi', [DetailTransaksiController::class, 'store'])->name('admin.detailTransaksi.store');
     Route::delete('admin/detailTransaksi/{id}', [DetailTransaksiController::class, 'destroy'])->name('admin.detailTransaksi.destroy');
+
+    Route::get('/cart', [HCartController::class, 'index'])->name('kasir');
+    Route::post('/cart', [HCartController::class, 'store'])->name('kasir.store');
 
 });
 

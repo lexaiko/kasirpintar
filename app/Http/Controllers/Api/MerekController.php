@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers\api;
 
-use App\Models\Kategori;
+use App\Models\Merek;
 use Illuminate\Http\Request;
-use App\Http\Resources\KategoriResource;
+use App\Http\Resources\MerekResource;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
-
-class KategoriController extends Controller
+class MerekController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $kategoris = Kategori::all();
-        return KategoriResource::collection($kategoris);
+        $merks = Merek::all();
+        return MerekResource::collection($merks);
     }
 
     /**
@@ -33,8 +32,8 @@ class KategoriController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        Kategori::create($request->all());
-        return response()->json(['message' => 'Kategori created successfully'], 201);
+        Merek::create($request->all());
+        return response()->json(['message' => 'Merek created successfully'], 201);
     }
 
     /**
@@ -42,13 +41,13 @@ class KategoriController extends Controller
      */
     public function show(string $id)
     {
-        $kategori = Kategori::find($id);
+        $merek = Merek::find($id);
 
-        if (!$kategori) {
-            return response()->json(['message' => 'Kategori not found'], 404);
+        if (!$merek) {
+            return response()->json(['message' => 'Merek not found'], 404);
         }
 
-        return new KategoriResource($kategori);
+        return new MerekResource($merek);
     }
 
     /**
@@ -56,10 +55,10 @@ class KategoriController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $kategori = Kategori::find($id);
+        $merek = Merek::find($id);
 
-        if (!$kategori) {
-            return response()->json(['message' => 'Kategori not found'], 404);
+        if (!$merek) {
+            return response()->json(['message' => 'Merek not found'], 404);
         }
 
         $validator = Validator::make($request->all(), [
@@ -70,8 +69,8 @@ class KategoriController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $kategori->update($request->all());
-        return new KategoriResource($kategori);
+        $merek->update($request->all());
+        return new MerekResource($merek);
     }
 
     /**
@@ -79,14 +78,14 @@ class KategoriController extends Controller
      */
     public function destroy(string $id)
     {
-        $kategori = Kategori::find($id);
+        $merek = Merek::find($id);
 
-        if (!$kategori) {
-            return response()->json(['message' => 'Kategori not found'], 404);
+        if (!$merek) {
+            return response()->json(['message' => 'Merek not found'], 404);
         }
 
-        $kategori->delete();
-        return response()->json(['message' => 'Kategori deleted successfully']);
+        $merek->delete();
+        return response()->json(['message' => 'Merek deleted successfully']);
     }
 }
 

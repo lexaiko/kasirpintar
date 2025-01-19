@@ -52,6 +52,7 @@
                 <div>
                     <label for="id_kategori" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
                     <select id="id_kategori" name="id_kategori" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('id_kategori') is-invalid @enderror">
+                        <option value="" disabled selected>Pilih kategori</option>
                         @foreach($kategori as $k)
                         <option value="{{ $k->id_kategori }}" {{ old('id_kategori') == $k->id_kategori ? 'selected' : '' }}>{{ $k->nama }}</option>
                         @endforeach
@@ -63,6 +64,7 @@
                 <div>
                     <label for="id_merek" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Merek</label>
                     <select id="id_merek" name="id_merek" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('id_merek') is-invalid @enderror">
+                        <option value="" disabled selected>Pilih merek</option>
                         @foreach($merek as $k)
                         <option value="{{ $k->id_merek }}" {{ old('id_merek') == $k->id_merek ? 'selected' : '' }}>{{ $k->nama }}</option>
                         @endforeach
@@ -75,6 +77,7 @@
                     <div>
                         <label for="id_satuan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Satuan</label>
                         <select id="id_satuan" name="id_satuan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('id_satuan') is-invalid @enderror">
+                            <option value="" disabled selected>Pilih satuan</option>
                             @foreach($satuan as $k)
                             <option value="{{ $k->id_satuan }}" {{ old('id_satuan') == $k->id_satuan ? 'selected' : '' }}>{{ $k->nama }}</option>
                             @endforeach
@@ -89,19 +92,12 @@
 
                 </div>
 
-                <div class="sm:col-span-2">
+                <div class="sm:col-span-1">
                     <label for="gambar" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gambar Produk</label>
                     <input type="file" name="gambar" id="gambar"
-                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 @error('gambar') is-invalid @enderror"
+                        class="block py-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 @error('gambar') is-invalid @enderror"
                         required>
                     @error('gambar')
-                    <div class="invalid-feedback text-red-500">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="sm:col-span-1">
-                    <label for="stok" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stok</label>
-                    <input type="text" name="stok" id="stok" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('stok') is-invalid @enderror" value="{{ old('stok') }}" required>
-                    @error('stok')
                     <div class="invalid-feedback text-red-500">{{ $message }}</div>
                     @enderror
                 </div>

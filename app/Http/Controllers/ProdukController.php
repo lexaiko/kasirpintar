@@ -17,7 +17,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $produks = Produk::with(['kategori', 'merek', 'satuan'])->paginate(5);
+        $produks = Produk::with(['kategori', 'merek', 'satuan', 'stok'])->paginate(5);
 
         // Log data yang sudah dieksekusi (untuk debugging)
         // \Log::info('Data Produk:', $produks->toArray());
@@ -50,7 +50,6 @@ class ProdukController extends Controller
             'nama' => 'required',
             'gambar' => 'nullable|image',
             'harga' => 'required|numeric',
-            'stok' => 'required|numeric',
         ]);
         $data = $request->all();
         if ($request->hasFile('gambar')) {
@@ -101,7 +100,6 @@ class ProdukController extends Controller
             'nama' => 'required|string|max:255',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:22048',
             'harga' => 'required|numeric|min:0',
-            'stok' => 'required|numeric|min:0',
         ]);
 
         // Proses upload gambar jika ada

@@ -107,7 +107,7 @@
                             <td class="px-4 py-3">{{ $produk->merek->nama }}</td>
                             <td class="px-4 py-3">{{ $produk->satuan->nama }}</td>
                             <td class="px-4 py-3">{{ $produk->harga }}</td>
-                            <td class="px-4 py-3">{{ $produk->stok }}</td>
+                            <td class="px-4 py-3">{{ $produk->stok ? $produk->stok->jumlah : 'belum ada stok' }}</td>
                             <td class="px-4 py-3">
                                 <img src="{{ asset('storage/' . $produk->gambar) }}" alt="Product Image" style="max-width: 100px; max-height: 100px;">
                             </td>
