@@ -52,9 +52,13 @@ class DetailTransaksiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id_transaksi)
     {
-        //
+        $details = DetailTransaksi::with('transaksi')
+                    ->where('id_transaksi', $id_transaksi)
+                    ->get();
+
+        return view('admin.detail_transaksi.show', compact('details'));
     }
 
     /**

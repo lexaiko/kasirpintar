@@ -79,6 +79,7 @@
                         <tr>
 
                             <th scope="col" class="px-4 py-3">No</th>
+                            <th scope="col" class="px-4 py-3">Kode Trx</th>
                             <th scope="col" class="px-4 py-3">Nama Pelanggan</th>
                             <th scope="col" class="px-4 py-3">Nama Staff</th>
                             <th scope="col" class="px-4 py-3">Metode Bayar</th>
@@ -102,6 +103,7 @@
                         @foreach ($transaksis as $transaksi)
                         <tr class="border-b dark:border-gray-700">
                             <td class="px-4 py-3">{{ ($transaksis->currentPage() - 1) * $transaksis->perPage() + $loop->iteration }}</td>
+                            <td class="px-4 py-3">{{ $transaksi->id_transaksi }}</td>
                             <td class="px-4 py-3">{{ $transaksi->pelanggan->nama }}</td>
                             <td class="px-4 py-3">{{ $transaksi->user->name }}</td>
                             <td class="px-4 py-3">{{ $transaksi->metodeBayar->nama }}</td>
@@ -109,7 +111,7 @@
                             <td class="px-4 py-3">Paid</td>
                             <td class="px-4 py-3">{{ $transaksi->created_at }}</td>
                             <td class="px-4 py-3">
-                                <a href="" class="text-blue-500 hover:text-blue-700">Detail</a>
+                                <a href="{{ route('admin.detailTransaksi.show', $transaksi->id_transaksi) }}" class="text-blue-500 hover:text-blue-700">Detail</a>
                             </td>
                             <td class="px-4 py-3 flex items-center justify-end">
                                 <button id="actionsDropdownButton-{{ $transaksi->id_transaksi }}" data-dropdown-toggle="actionsDropdown-{{ $transaksi->id_transaksi }}" class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700" type="button">

@@ -80,12 +80,9 @@
 
                             <th scope="col" class="px-4 py-3">No</th>
                             <th scope="col" class="px-4 py-3">Nama Pelanggan</th>
+                            <th scope="col" class="px-4 py-3">No Hp</th>
+                            <th scope="col" class="px-4 py-3">Alamat</th>
                             <th scope="col" class="px-4 py-3 text-right">Aksi</th>
-
-
-                            <th scope="col" class="px-4 py-3">
-                                <span class="sr-only">Actions</span>
-                            </th>
                         </tr>
                     </thead>
 
@@ -95,6 +92,8 @@
                         <tr class="border-b dark:border-gray-700">
                             <td class="px-4 py-3">{{ ($pelanggans->currentPage() - 1) * $pelanggans->perPage() + $loop->iteration }}</td>
                             <td class="px-4 py-3">{{ $pelanggan->nama }}</td>
+                            <td class="px-4 py-3">{{ $pelanggan->no_hp }}</td>
+                            <td class="px-4 py-3">{{ $pelanggan->alamat }}</td>
                             <td class="px-4 py-3 flex items-center justify-end">
                                 <button id="actionsDropdownButton-{{ $pelanggan->id_pelanggan }}" data-dropdown-toggle="actionsDropdown-{{ $pelanggan->id_pelanggan }}" class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700" type="button">
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -142,45 +141,5 @@
             </nav>
 
         </div>
-        <script>
-            $('form').on('submit', function(e) {
-                var konten = $('#summernote').summernote('code');
-                var textOnly = $('<div>').html(konten).text(); // Menghapus tag HTML
-                $('#summernote').val(textOnly); // Set nilai textarea dengan teks yang sudah dibersihkan
-            });
-        </script>
-        <script>
-            document.getElementById('dropdownButton').addEventListener('click', function() {
-                var dropdownMenu = document.getElementById('dropdownMenu');
-                dropdownMenu.classList.toggle('hidden');
-            });
-
-            // Close dropdown if click outside
-            document.addEventListener('click', function(event) {
-                var dropdownMenu = document.getElementById('dropdownMenu');
-                if (!event.target.closest('#dropdownButton') && !event.target.closest('#dropdownMenu')) {
-                    dropdownMenu.classList.add('hidden');
-                }
-            });
-        </script>
-        <script>
-            // silang x allert
-            document.addEventListener('DOMContentLoaded', function() {
-                // Temukan semua button dengan data-dismiss-target
-                const dismissButtons = document.querySelectorAll('[data-dismiss-target]');
-
-                dismissButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        const targetId = this.getAttribute('data-dismiss-target');
-                        const alertElement = document.querySelector(targetId);
-
-                        if (alertElement) {
-                            alertElement.classList.add(
-                                'hidden'); // Tambah class hidden untuk menyembunyikan alert
-                        }
-                    });
-                });
-            });
-        </script>
     </x-layout>
 </x-app-layout>

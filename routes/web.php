@@ -12,21 +12,14 @@ use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DetailTransaksiController;
-use App\Http\Controllers\HCartController;
+use App\Livewire\Cart;
+
 
 
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test', function () {
-    return view('cart');
-});
-Route::get('/anjay', function () {
-    return view('kasir');
-});
-Route::get('/transaksi1', function () {
-    return view('transaksi.transaksi');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -111,9 +104,9 @@ Route::middleware(['auth', 'roles:admin,superadmin'])->group(function () {
     Route::get('/admin/detailTransaksi/{id}/edit', [DetailTransaksiController::class, 'edit'])->name('admin.detailTransaksi.edit');
     Route::post('admin/detailTransaksi', [DetailTransaksiController::class, 'store'])->name('admin.detailTransaksi.store');
     Route::delete('admin/detailTransaksi/{id}', [DetailTransaksiController::class, 'destroy'])->name('admin.detailTransaksi.destroy');
+    Route::get('/admin/detailTransaksi/{id}/show', [DetailTransaksiController::class, 'show'])->name('admin.detailTransaksi.show');
 
-    Route::get('/cart', [HCartController::class, 'index'])->name('kasir');
-    Route::post('/cart', [HCartController::class, 'store'])->name('kasir.store');
+    Route::get('/transaksi', Cart::class)->name('Cart');
 
 });
 

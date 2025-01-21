@@ -161,14 +161,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-
-                </table>
-            </div>
-            <!-- Main modal -->
+                                    <!-- Main modal -->
             <div id="crud-modal{{ $stok->id_stok }}" tabindex="-1" aria-hidden="true"
                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-slate-400 bg-opacity-50">
                 <div class="relative p-4 w-full max-w-md max-h-full">
@@ -224,6 +217,14 @@
                     </div>
                 </div>
             </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+
+                </table>
+            </div>
+
             <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
                 aria-label="Table navigation">
                 <span class="text-sm font-normal text-gray-500 dark:text-gray-400">

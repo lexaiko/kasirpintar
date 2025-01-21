@@ -82,6 +82,7 @@
                             <th scope="col" class="px-4 py-3">Harga satuan</th>
                             <th scope="col" class="px-4 py-3">jumlah</th>
                             <th scope="col" class="px-4 py-3">Total Harga</th>
+                            <th scope="col" class="px-4 py-3">Tanggal Transaksi</th>
                             <th scope="col" class="px-4 py-3 text-rig">Aksi</th>
 
 
@@ -102,6 +103,7 @@
                             <td class="px-4 py-3">{{ $detailTransaksi->harga_satuan }}</td>
                             <td class="px-4 py-3">{{ $detailTransaksi->jumlah }}</td>
                             <td class="px-4 py-3">{{ $detailTransaksi->total_harga }}</td>
+                            <td class="px-4 py-3">{{ $detailTransaksi->created_at }}</td>
                             <td class="px-4 py-3 flex items-center justify-end">
                                 <button id="actionsDropdownButton-{{ $detailTransaksi->id_detail }}" data-dropdown-toggle="actionsDropdown-{{ $detailTransaksi->id_detail }}" class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700" type="button">
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

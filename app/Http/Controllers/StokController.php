@@ -32,7 +32,7 @@ class StokController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_produk' => 'required|exists:produks,id_produk',
+            'id_produk' => 'required|exists:produks,id_produk|unique:stoks,id_produk',
             'jumlah' => 'required|numeric|min:1',
         ]);
 

@@ -142,45 +142,6 @@
             </nav>
 
         </div>
-        <script>
-            $('form').on('submit', function(e) {
-                var konten = $('#summernote').summernote('code');
-                var textOnly = $('<div>').html(konten).text(); // Menghapus tag HTML
-                $('#summernote').val(textOnly); // Set nilai textarea dengan teks yang sudah dibersihkan
-            });
-        </script>
-        <script>
-            document.getElementById('dropdownButton').addEventListener('click', function() {
-                var dropdownMenu = document.getElementById('dropdownMenu');
-                dropdownMenu.classList.toggle('hidden');
-            });
 
-            // Close dropdown if click outside
-            document.addEventListener('click', function(event) {
-                var dropdownMenu = document.getElementById('dropdownMenu');
-                if (!event.target.closest('#dropdownButton') && !event.target.closest('#dropdownMenu')) {
-                    dropdownMenu.classList.add('hidden');
-                }
-            });
-        </script>
-        <script>
-            // silang x allert
-            document.addEventListener('DOMContentLoaded', function() {
-                // Temukan semua button dengan data-dismiss-target
-                const dismissButtons = document.querySelectorAll('[data-dismiss-target]');
-
-                dismissButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        const targetId = this.getAttribute('data-dismiss-target');
-                        const alertElement = document.querySelector(targetId);
-
-                        if (alertElement) {
-                            alertElement.classList.add(
-                                'hidden'); // Tambah class hidden untuk menyembunyikan alert
-                        }
-                    });
-                });
-            });
-        </script>
     </x-layout>
 </x-app-layout>
