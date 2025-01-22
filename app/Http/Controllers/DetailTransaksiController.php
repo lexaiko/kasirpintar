@@ -14,7 +14,7 @@ class DetailTransaksiController extends Controller
      */
     public function index()
     {
-        $detailTransaksis = DetailTransaksi::with(['produk'])->paginate(10);
+        $detailTransaksis = DetailTransaksi::with(['produk'])->latest()->paginate(10);
 
         // Log data yang sudah dieksekusi (untuk debugging)
         // \Log::info('Data Produk:', $produks->toArray());
@@ -59,6 +59,14 @@ class DetailTransaksiController extends Controller
                     ->get();
 
         return view('admin.detail_transaksi.show', compact('details'));
+    }
+    public function struk($id_transaksi)
+    {
+        $details = DetailTransaksi::with('transaksi')
+                    ->where('id_transaksi', $id_transaksi)
+                    ->get();
+
+        return view('admin.detail_transaksi.struk', compact('details'));
     }
 
     /**

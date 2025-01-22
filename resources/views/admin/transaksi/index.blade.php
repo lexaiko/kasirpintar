@@ -107,7 +107,7 @@
                             <td class="px-4 py-3">{{ $transaksi->pelanggan->nama }}</td>
                             <td class="px-4 py-3">{{ $transaksi->user->name }}</td>
                             <td class="px-4 py-3">{{ $transaksi->metodeBayar->nama }}</td>
-                            <td class="px-4 py-3">{{ $transaksi->total_belanja }}</td>
+                            <td class="px-4 py-3 whitespace-nowrap">Rp {{ number_format($transaksi->total_belanja, 0, ',', '.') }}</td>
                             <td class="px-4 py-3">Paid</td>
                             <td class="px-4 py-3">{{ $transaksi->created_at }}</td>
                             <td class="px-4 py-3">

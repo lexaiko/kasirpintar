@@ -74,7 +74,7 @@
                                     <!-- Dashboard Card -->
                                     <a href="{{ route('dashboard') }}" class="transition-all transform hover:scale-105 rounded-xl bg-white dark:bg-[#262626] p-8 text-center shadow-lg hover:shadow-2xl hover:bg-[#FF2D20] dark:hover:bg-[#FF2D20]">
                                         <h3 class="text-3xl font-semibold text-[#FF2D20] dark:text-white transition-all hover:text-white">Dashboard</h3>
-                                        <p class="mt-4 text-lg text-gray-700 dark:text-white/70">Lihat laporan penjualan Anda</p>
+                                        <p class="mt-4 text-lg text-gray-700 dark:text-white/70 hover:text-white">Lihat laporan penjualan Anda</p>
                                     </a>
 
                                     <!-- Kasir Card -->

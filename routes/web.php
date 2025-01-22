@@ -13,6 +13,7 @@ use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DetailTransaksiController;
 use App\Livewire\Cart;
+use App\Livewire\Struk;
 
 
 
@@ -105,8 +106,10 @@ Route::middleware(['auth', 'roles:admin,superadmin'])->group(function () {
     Route::post('admin/detailTransaksi', [DetailTransaksiController::class, 'store'])->name('admin.detailTransaksi.store');
     Route::delete('admin/detailTransaksi/{id}', [DetailTransaksiController::class, 'destroy'])->name('admin.detailTransaksi.destroy');
     Route::get('/admin/detailTransaksi/{id}/show', [DetailTransaksiController::class, 'show'])->name('admin.detailTransaksi.show');
+    Route::get('/admin/detailTransaksi/{id}/struk', [DetailTransaksiController::class, 'struk'])->name('admin.detailTransaksi.struk');
 
     Route::get('/transaksi', Cart::class)->name('Cart');
+    Route::get('/transaksi/struk/{id_transaksi}', Struk::class)->name('transaksi.struk');
 
 });
 

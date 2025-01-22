@@ -12,7 +12,7 @@ class TransaksiController extends Controller
 {
     public function index()
     {
-        $transaksis = Transaksi::with(['pelanggan', 'user', 'metodeBayar'])->paginate(5);
+        $transaksis = Transaksi::with(['pelanggan', 'user', 'metodeBayar'])->latest()->paginate(5);
         return view('admin.transaksi.index', compact('transaksis'));
     }
 
@@ -85,4 +85,6 @@ class TransaksiController extends Controller
         $transaksi->delete();
         return redirect()->route('admin.transaksi.index')->with('success', 'transaksi berhasil dihapus.');
     }
+
+
 }

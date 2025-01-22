@@ -21,7 +21,7 @@ class Cart extends Component
     public $pelanggan = [];
     public $daftarProduk = []; // Menyimpan daftar produk yang akan ditampilkan
 
-    // Method untuk menangani pencarian saat `search` berubah
+    // Method untuk menangani pencarian saat search berubah
     public function updatedSearch()
     {
         $this->updateDaftarProduk(); // Update daftar produk berdasarkan pencarian
@@ -145,12 +145,13 @@ class Cart extends Component
             $this->totalHarga = 0;
 
             session()->flash('pesan', 'Transaksi berhasil disimpan!');
-            return redirect()->route('admin.detailTransaksi.show', $transaksi->id_transaksi);
+            return redirect()->route('admin.detailTransaksi.struk', ['id' => $transaksi->id_transaksi, 'id_transaksi' => $transaksi->id_transaksi]);
         } catch (\Exception $e) {
             \DB::rollBack();
             session()->flash('error', 'Gagal menyimpan transaksi: ' . $e->getMessage());
         }
     }
+
 
     public function render()
     {
